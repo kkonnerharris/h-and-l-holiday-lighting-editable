@@ -1,4 +1,4 @@
-import site from "../content/site.json";
+import site from "../lib/site-content";
 import type { Metadata } from "next";
 import "./globals.css";
 

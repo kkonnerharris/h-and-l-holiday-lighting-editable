@@ -2,9 +2,20 @@
 
 This folder is an independent copy. The original website in the parent folder is not changed by editing this version.
 
-## Try it locally
+## Edit in Pages CMS
 
-Run `npm run dev` in this folder to open the website at http://localhost:3001. In a second terminal, run `node local-editor.cjs`, then open http://localhost:3002 to edit this copy alongside a live preview. Save & preview writes only this folder's `content/site.json`. Photo uploads go only to this folder's `public/images/projects`.
+Open https://app.pagescms.org and select `kkonnerharris/h-and-l-holiday-lighting-editable`.
+
+- **Home page**: edit the headline, introduction, main photo, optional photo description, and button text.
+- **Gallery photos**: expand one photo, select or upload its replacement, optionally add a description, then save. Add, remove, and reorder photos in this section.
+- **Contact details**: one phone number and a Facebook link.
+- **Advanced**: less frequent changes to other page text, services, and search settings.
+
+Saving publishes to the separate editable website through GitHub Actions. Image uploads use new filenames so replacing one photo does not overwrite an image used elsewhere.
+
+## Local website preview
+
+Run `npm run dev` in this folder to open the website at http://localhost:3001. Use the actual Pages CMS editor for editing; the earlier local editor prototype has been retired.
 
 The local editor is for previewing on this computer. It is not published as an editing server on GitHub Pages. Production editing uses authenticated Pages CMS.
 

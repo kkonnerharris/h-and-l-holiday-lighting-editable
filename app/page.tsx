@@ -5,7 +5,7 @@ import { ProjectSelectionProvider } from "../components/project-selection";
 import { ProjectGallery, type ProjectPhoto } from "../components/project-gallery";
 import { ScrollEffects } from "../components/scroll-effects";
 import { TwinklingLights } from "../components/twinkling-lights";
-import site from "../content/site.json";
+import site from "../lib/site-content";
 import { assetPath } from "../lib/asset-path";
 const serviceIcons = { Lightbulb, Trees, Sparkles };
 

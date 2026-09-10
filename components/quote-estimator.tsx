@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
-import site from "../content/site.json";
+import site from "../lib/site-content";
 const phone = site.contact.phone;
 const phoneHref = `tel:${phone.replace(/[^+0-9]/g, "")}`;
 import { ArrowRight, Check } from "lucide-react";
