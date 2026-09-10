@@ -1,0 +1,313 @@
+{
+  "seo": {
+    "title": "H & L Holiday Lighting | Carterville, IL",
+    "description": "Custom Christmas light design and professional installation for homes and businesses across Southern Illinois."
+  },
+  "contact": {
+    "phone": "618-967-7197",
+    "phoneDisplay": "(618) 967-7197",
+    "facebook": "https://www.facebook.com/profile.php?id=100085259690967"
+  },
+  "hero": {
+    "image": "/images/projects/warm-white-estate.jpg",
+    "alt": "Elegant home with professionally installed warm white Christmas lights"
+  },
+  "copy": {
+    "header": {
+      "text01": "H & L",
+      "text02": "HOLIDAY LIGHTING",
+      "text03": "Services",
+      "text04": "Our work",
+      "text05": "Our process",
+      "text06": "Estimate",
+      "text07": "Plan your display ",
+      "text08": "Services",
+      "text09": "Our work",
+      "text10": "Our process",
+      "text11": "Get an estimate"
+    },
+    "top": {
+      "text01": "Come home to",
+      "text02": "something magical.",
+      "text03": "Bringing holiday magic to homes across Southern Illinois. Explore our lighting projects and tell us what you have in mind for your home.",
+      "text04": "Request my estimate ",
+      "text05": "See recent homes ",
+      "text06": "Discover"
+    },
+    "trust_bar": {
+      "text01": "Installation",
+      "text02": "Maintenance",
+      "text03": "Takedown",
+      "text04": "Storage"
+    },
+    "services": {
+      "text01": "Our signature services",
+      "text02": "Every detail,",
+      "text03": "beautifully considered.",
+      "text04": "Choose a look for your roofline, trees, or landscape. H & L offers installation, maintenance, takedown, and storage services."
+    },
+    "estimate": {
+      "text01": "A brighter holiday starts here",
+      "text02": "Let’s make your",
+      "text03": "home glow.",
+      "text04": "Tell us about your property, preferred lighting style, and timing so we can discuss your estimate."
+    },
+    "work": {
+      "text01": "Project gallery",
+      "text02": "Real homes.",
+      "text03": "Remarkable glow.",
+      "text04": "A look at H & L projects, from classic warm white to joyful full-color displays."
+    },
+    "editorial_split": {
+      "text01": "Holiday inspiration",
+      "text02": "warm white brilliance",
+      "text03": "H & L Holiday Lighting",
+      "text04": "Holiday wonder.",
+      "text05": "Find your inspiration.",
+      "text06": "Plan beyond installation day. H & L offers services for your display during the holidays and after the season ends.",
+      "text07": " Installation",
+      "text08": " Maintenance",
+      "text09": " Takedown",
+      "text10": " Storage",
+      "text11": "Explore services "
+    },
+    "process": {
+      "text01": "Holiday lighting services",
+      "text02": "Plan for your",
+      "text03": "holiday season."
+    },
+    "faq": {
+      "text01": "Before you book",
+      "text02": "Start with your property details and the look you have in mind.",
+      "text03": "What affects my estimate?",
+      "text04": "Share your property size, the rooflines or trees you want lit, access details, and your preferred display style. These details help H & L understand the scope of your project and discuss pricing with you.",
+      "text05": "When should I request an installation?",
+      "text06": "Send your inquiry once you know your preferred dates. Include when you would like your display ready; H & L can confirm current availability before you book. Submitting an inquiry does not reserve an installation date.",
+      "text07": "Are lights supplied, and what is included?",
+      "text08": "Before booking, confirm who supplies and owns the lights, which maintenance visits are covered, and the arrangements for takedown and storage. The listed services do not specify what is included in your individual estimate."
+    },
+    "faq-heading": {
+      "text01": "A little planning.",
+      "text02": "A brighter season."
+    },
+    "facebook": {
+      "text01": "Find H & L Holiday Lighting on Facebook.",
+      "text02": "Visit our Facebook page "
+    },
+    "footer": {
+      "text01": "H & L",
+      "text02": "HOLIDAY LIGHTING",
+      "text03": "Custom holiday lighting,",
+      "text04": "beautifully handled.",
+      "text05": "Proudly serving ",
+      "text06": "Carterville",
+      "text07": "Southern Illinois",
+      "text08": "© 2026 H & L Holiday Lighting. All rights reserved.",
+      "text09": "Facebook",
+      "text10": "Back to top ↑"
+    }
+  },
+  "services": [
+    {
+      "number": "01",
+      "icon": "Lightbulb",
+      "title": "Roofline Lighting",
+      "description": "Define your home?s roofline with classic warm white or colorful holiday lights.",
+      "detail": "Request an estimate"
+    },
+    {
+      "number": "02",
+      "icon": "Trees",
+      "title": "Trees & Landscape",
+      "description": "Bring a holiday glow to trees, shrubs, and outdoor spaces.",
+      "detail": "Request an estimate"
+    },
+    {
+      "number": "03",
+      "icon": "Sparkles",
+      "title": "Holiday Displays",
+      "description": "Create a festive look with roofline lighting, illuminated greenery, and holiday accents.",
+      "detail": "Share your ideas"
+    }
+  ],
+  "process": [
+    {
+      "number": "01",
+      "title": "Installation",
+      "description": "Holiday lighting installation for rooflines, trees, and outdoor spaces."
+    },
+    {
+      "number": "02",
+      "title": "Maintenance",
+      "description": "Maintenance services for your holiday display. Confirm the covered work and any service charges before booking."
+    },
+    {
+      "number": "03",
+      "title": "Takedown",
+      "description": "Post-season light removal. Confirm your takedown schedule when planning your installation."
+    },
+    {
+      "number": "04",
+      "title": "Storage",
+      "description": "Storage services for your holiday lights. Confirm arrangements and any storage charges before booking."
+    }
+  ],
+  "projects": [
+    {
+      "image": "/images/projects/warm-white-estate.jpg",
+      "alt": "Large white estate outlined with warm white holiday lights"
+    },
+    {
+      "image": "/images/projects/warm-white-country-estate.jpg",
+      "alt": "Country estate with warm white lights tracing the roofline"
+    },
+    {
+      "image": "/images/projects/multicolor-brick-home.jpg",
+      "alt": "Brick home decorated with bright multicolor roofline lights"
+    },
+    {
+      "image": "/images/projects/warm-white-landscape-home.jpg",
+      "alt": "Home and landscaped shrubs covered in warm white holiday lights"
+    },
+    {
+      "image": "/images/projects/red-white-roofline-home.jpg",
+      "alt": "Brick home with red and warm white roofline lights"
+    },
+    {
+      "image": "/images/projects/blue-white-barndominium.jpg",
+      "alt": "Country home illuminated with blue and white holiday lights"
+    },
+    {
+      "image": "/images/projects/red-wash-reindeer-home.jpg",
+      "alt": "Home with warm white roofline lights, red uplighting, and illuminated reindeer"
+    },
+    {
+      "image": "/images/projects/warm-white-brick-home-side.jpg",
+      "alt": "Brick home viewed from the side with warm white roofline lighting"
+    },
+    {
+      "image": "/images/projects/warm-white-brick-home-front.jpg",
+      "alt": "Brick home viewed from the front with warm white roofline lighting"
+    },
+    {
+      "image": "/images/projects/twilight-brick-estate.jpg",
+      "alt": "Brick estate with warm white roofline lights at twilight"
+    },
+    {
+      "image": "/images/projects/white-column-estate.jpg",
+      "alt": "White column estate outlined in warm white holiday lights"
+    },
+    {
+      "image": "/images/projects/multicolor-cabin.jpg",
+      "alt": "Cabin roofline decorated with multicolor holiday lights"
+    },
+    {
+      "image": "/images/projects/multicolor-country-home.jpg",
+      "alt": "Country home glowing with multicolor roofline lights"
+    },
+    {
+      "image": "/images/projects/multicolor-barn.jpg",
+      "alt": "Large barn outlined with multicolor holiday lights"
+    },
+    {
+      "image": "/images/projects/multicolor-covered-patio.jpg",
+      "alt": "Covered patio columns wrapped in multicolor holiday lights"
+    },
+    {
+      "image": "/images/projects/multicolor-deck-dogs.jpg",
+      "alt": "Family dogs on a deck decorated with multicolor holiday lights"
+    },
+    {
+      "image": "/images/projects/multicolor-pool-deck.jpg",
+      "alt": "Pool deck and building decorated with multicolor holiday lights"
+    },
+    {
+      "image": "/images/projects/multicolor-kokopelli-close.jpg",
+      "alt": "Kokopelli home covered in vivid multicolor roofline lights"
+    },
+    {
+      "image": "/images/projects/red-white-home-wide.jpg",
+      "alt": "Home outlined with red and warm white roofline lights"
+    },
+    {
+      "image": "/images/projects/transformation-before.svg",
+      "alt": "Home before holiday lighting installation"
+    },
+    {
+      "image": "/images/projects/transformation-after.svg",
+      "alt": "Home after warm white roofline and tree lighting installation"
+    },
+    {
+      "image": "/images/projects/lake-of-egypt-garage.svg",
+      "alt": "Lake of Egypt garage with holiday lighting installation sign"
+    },
+    {
+      "image": "/images/projects/lake-of-egypt-roofline.svg",
+      "alt": "Blue roofline bulbs overlooking Lake of Egypt"
+    },
+    {
+      "image": "/images/projects/marion-eye-care-entrance.svg",
+      "alt": "Marion Family Eye Care front entrance with holiday wreath"
+    },
+    {
+      "image": "/images/projects/mt-vernon-centralia-home.svg",
+      "alt": "Home with multicolor roofline and porch lights"
+    },
+    {
+      "image": "/images/projects/mt-vernon-centralia-building.svg",
+      "alt": "Outbuilding with multicolor roofline lights and wrapped columns"
+    },
+    {
+      "image": "/images/projects/mt-vernon-centralia-patio.svg",
+      "alt": "Patio illuminated by multicolor holiday lights"
+    },
+    {
+      "image": "/images/projects/mt-vernon-centralia-garage.svg",
+      "alt": "Garage roofline with warm white holiday lights"
+    },
+    {
+      "image": "/images/projects/warm-white-estate-driveway.svg",
+      "alt": "Estate with warm white tree lights and illuminated driveway"
+    },
+    {
+      "image": "/images/projects/red-white-estate-front.svg",
+      "alt": "Estate with red and white roofline lights"
+    },
+    {
+      "image": "/images/projects/blue-commercial-building.svg",
+      "alt": "Commercial building outlined with blue holiday lights"
+    },
+    {
+      "image": "/images/projects/warm-white-reindeer-display.svg",
+      "alt": "Home with warm white roofline lights and illuminated reindeer"
+    },
+    {
+      "image": "/images/projects/509599726_9980162165434992_5821503768427387477_n.jpg",
+      "alt": "Home glowing with warm white holiday lights during snowfall"
+    },
+    {
+      "image": "/images/projects/568370868_788890313962951_3594569174565577868_n.jpg",
+      "alt": "Southern Illinois home decorated with vivid blue and warm white lights"
+    },
+    {
+      "image": "/images/projects/581950599_810061485179167_7580922133130006176_n.jpg",
+      "alt": "Snowy home with warm white roofline and landscape lighting"
+    },
+    {
+      "image": "/images/projects/484065721_616483704536947_3032820578291621366_n.jpg",
+      "alt": "Home outlined with blue and green roofline lights at dusk"
+    },
+    {
+      "image": "/images/projects/579787005_805925228926126_2197507762505336370_n.jpg",
+      "alt": "Single-story home decorated with multicolor holiday lights at night"
+    },
+    {
+      "image": "/images/projects/581958006_807884852063497_3556992879342088949_n.jpg",
+      "alt": "Building with multicolor roofline lights and wrapped patio columns"
+    },
+    {
+      "image": "/images/projects/587835174_813416561510326_3304324803958283422_n.jpg",
+      "alt": "Home with multicolor roofline and driveway lights"
+    }
+  ]
+}

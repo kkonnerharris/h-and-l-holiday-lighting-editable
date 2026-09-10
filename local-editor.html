@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Edit the second H & L site</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif;background:#f4f0e7;color:#102334}header{padding:18px 24px;background:#102334;color:white;display:flex;gap:20px;align-items:center;flex-wrap:wrap}h1{font-size:19px;margin:0}header p{font-size:12px;margin:5px 0 0;color:#d6d9db}button,.link{cursor:pointer;border:1px solid #b99559;border-radius:6px;background:#e5c990;color:#102334;padding:10px 14px;font:inherit;text-decoration:none}header button{margin-left:auto}main{display:grid;grid-template-columns:400px 1fr;height:calc(100vh - 90px)}aside{overflow:auto;padding:20px}iframe{width:100%;height:100%;border:0;background:white}details{padding:12px;margin-bottom:10px;background:white;border:1px solid #ddd4c3;border-radius:6px}summary{cursor:pointer;font-weight:600;line-height:1.5}label{display:block;margin:16px 0;font-size:12px}input,textarea,select{display:block;width:100%;margin-top:7px;padding:10px;border:1px solid #c7cdd0;border-radius:4px;font:14px system-ui}textarea{min-height:100px}img{display:block;width:100%;max-height:140px;object-fit:cover;margin-top:8px;border-radius:4px}input[type=file]{font-size:11px}#status{padding:10px 24px;margin:0;background:#fff5db;min-height:36px}.remove{background:white;color:#983a2d;border-color:#d2b6ae;font-size:12px}#preview{min-width:0}small{display:block;margin:8px 0;color:#68717a}@media(max-width:800px){main{display:block;height:auto}aside{max-height:65vh}iframe{height:80vh}}
+</style></head><body>
+<header><div><h1>H &amp; L website editor</h1><p>Second version · changes stay on this computer until published</p></div><button id="save">Save &amp; preview</button><a class="link" href="http://localhost:3001" target="_blank" rel="noopener">Open preview</a></header>
+<p id="status" role="status">Your original website is separate and will not be changed.</p>
+<main><aside id="fields"></aside><div id="preview"><iframe title="Second website preview" src="http://localhost:3001"></iframe></div></main>
+<script>
+let content, schema, dirty = false;
+const status = document.querySelector('#status');
+const mark = () => { dirty = true; status.textContent = 'Unsaved changes — save to update the second version.'; };
+const el = (tag, text) => { const node = document.createElement(tag); if (text) node.textContent = text; return node; };
+function blank(fields) { return Object.fromEntries(fields.map(f => [f.name, f.list ? [] : f.type === 'object' ? blank(f.fields) : f.type === 'select' ? f.options.values[0] : ''])); }
+function render(fields, obj, parent) {
+  fields.forEach(field => {
+    if (field.type === 'object') {
+      const box = el('details'); box.append(el('summary', field.label)); parent.append(box);
+      if (field.list) {
+        const list = el('div'); box.append(list);
+        const paint = () => { list.replaceChildren(); obj[field.name].forEach((item, i) => {
+          const card = el('details'); card.append(el('summary', item.alt || item.title || `Item ${i + 1}`));
+          render(field.fields, item, card);
+          const remove = el('button', 'Remove item'); remove.className = 'remove'; remove.onclick = () => { if (confirm('Remove this item from the second version?')) { obj[field.name].splice(i, 1); mark(); paint(); } }; card.append(remove);
+          if (i > 0) { const up = el('button', 'Move up'); up.onclick = () => { [obj[field.name][i - 1], obj[field.name][i]] = [obj[field.name][i], obj[field.name][i - 1]]; mark(); paint(); }; card.append(up); }
+          list.append(card);
+        }); };
+        paint(); const add = el('button', 'Add item'); add.onclick = () => { obj[field.name].push(blank(field.fields)); mark(); paint(); list.lastElementChild.open = true; }; box.append(add);
+      } else render(field.fields, obj[field.name], box);
+      return;
+    }
+    const label = el('label', field.label);
+    const input = el(field.type === 'text' ? 'textarea' : field.type === 'select' ? 'select' : 'input');
+    if (field.type === 'select') field.options.values.forEach(v => { const option = el('option', v); option.value = v; input.append(option); });
+    input.value = obj[field.name]; input.required = !!field.required;
+    input.oninput = () => { obj[field.name] = input.value; mark(); };
+    label.append(input); parent.append(label);
+    if (field.type === 'image') {
+      const image = el('img'); image.src = 'http://localhost:3001' + input.value; image.alt = 'Selected image'; label.append(image);
+      input.addEventListener('change', () => { image.src = 'http://localhost:3001' + input.value; });
+      const upload = el('input'); upload.type = 'file'; upload.accept = 'image/jpeg,image/png,image/webp,image/gif,image/avif'; upload.setAttribute('aria-label', 'Upload ' + field.label);
+      upload.onchange = async () => {
+        const file = upload.files[0]; if (!file) return;
+        try { const response = await fetch('/upload', { method:'POST', headers:{'Content-Type':file.type}, body:file }); const result = await response.json(); if (!response.ok) throw Error(result.error); input.value = obj[field.name] = result.path; image.src = 'http://localhost:3001' + result.path; mark(); }
+        catch(error) { status.textContent = error.message; }
+      }; label.append(upload);
+    }
+  });
+}
+fetch('/content').then(r => r.json()).then(data => { content = data.content; schema = data.schema; render(schema.content[0].fields, content, document.querySelector('#fields')); }).catch(() => { status.textContent = 'Unable to load content. Restart the local editor.'; });
+document.querySelector('#save').onclick = async () => {
+  const button = document.querySelector('#save'); button.disabled = true;
+  try {
+    const response = await fetch('/content', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(content) });
+    const result = await response.json(); if (!response.ok) throw Error(result.error);
+    dirty = false; status.textContent = 'Saved to the second version. Preview is updating; your original site is untouched.';
+    document.querySelector('iframe').src = 'http://localhost:3001/?preview=' + Date.now();
+  } catch(error) { status.textContent = error.message; }
+  finally { button.disabled = false; }
+};
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+</script></body></html>

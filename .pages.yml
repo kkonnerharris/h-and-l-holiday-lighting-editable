@@ -1,0 +1,701 @@
+{
+  "media": {
+    "input": "public/images/projects",
+    "output": "/images/projects"
+  },
+  "content": [
+    {
+      "name": "site",
+      "label": "Website content",
+      "type": "file",
+      "path": "content/site.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "seo",
+          "label": "Search engine listing",
+          "type": "object",
+          "required": true,
+          "fields": [
+            {
+              "name": "title",
+              "label": "Page title",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "contact",
+          "label": "Contact details",
+          "type": "object",
+          "required": true,
+          "fields": [
+            {
+              "name": "phone",
+              "label": "Phone number",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "phoneDisplay",
+              "label": "Phone display in footer",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "facebook",
+              "label": "Facebook URL",
+              "type": "string",
+              "required": true,
+              "pattern": "^https://.*"
+            }
+          ]
+        },
+        {
+          "name": "hero",
+          "label": "Main photo",
+          "type": "object",
+          "required": true,
+          "fields": [
+            {
+              "name": "image",
+              "label": "Hero photo",
+              "type": "image",
+              "required": true
+            },
+            {
+              "name": "alt",
+              "label": "Photo description",
+              "type": "string",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "label": "Page text",
+          "type": "object",
+          "required": true,
+          "fields": [
+            {
+              "name": "header",
+              "label": "header",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "H & L",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "HOLIDAY LIGHTING",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "Services",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Our work",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text05",
+                  "label": "Our process",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text06",
+                  "label": "Estimate",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text07",
+                  "label": "Plan your display",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text08",
+                  "label": "Services",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text09",
+                  "label": "Our work",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text10",
+                  "label": "Our process",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text11",
+                  "label": "Get an estimate",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "top",
+              "label": "top",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Come home to",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "something magical.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "Bringing holiday magic to homes across Southern Illinois. Explore",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Request my estimate",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text05",
+                  "label": "See recent homes",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text06",
+                  "label": "Discover",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "trust_bar",
+              "label": "trust bar",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Installation",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Maintenance",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "Takedown",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Storage",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "services",
+              "label": "services",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Our signature services",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Every detail,",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "beautifully considered.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Choose a look for your roofline, trees, or landscape. H & L offer",
+                  "type": "text",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "estimate",
+              "label": "estimate",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "A brighter holiday starts here",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Let’s make your",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "home glow.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Tell us about your property, preferred lighting style, and timing",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "work",
+              "label": "work",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Project gallery",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Real homes.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "Remarkable glow.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "A look at H & L projects, from classic warm white to joyful full-",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "editorial_split",
+              "label": "editorial split",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Holiday inspiration",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "warm white brilliance",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "H & L Holiday Lighting",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Holiday wonder.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text05",
+                  "label": "Find your inspiration.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text06",
+                  "label": "Plan beyond installation day. H & L offers services for your disp",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "text07",
+                  "label": "Installation",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text08",
+                  "label": "Maintenance",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text09",
+                  "label": "Takedown",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text10",
+                  "label": "Storage",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text11",
+                  "label": "Explore services",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "process",
+              "label": "process",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Holiday lighting services",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Plan for your",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "holiday season.",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "faq",
+              "label": "faq",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Before you book",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Start with your property details and the look you have in mind.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "What affects my estimate?",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "Share your property size, the rooflines or trees you want lit, ac",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "text05",
+                  "label": "When should I request an installation?",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text06",
+                  "label": "Send your inquiry once you know your preferred dates. Include whe",
+                  "type": "text",
+                  "required": true
+                },
+                {
+                  "name": "text07",
+                  "label": "Are lights supplied, and what is included?",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text08",
+                  "label": "Before booking, confirm who supplies and owns the lights, which m",
+                  "type": "text",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "faq-heading",
+              "label": "faq-heading",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "A little planning.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "A brighter season.",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "facebook",
+              "label": "facebook",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "Find H & L Holiday Lighting on Facebook.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "Visit our Facebook page",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            },
+            {
+              "name": "footer",
+              "label": "footer",
+              "type": "object",
+              "required": true,
+              "fields": [
+                {
+                  "name": "text01",
+                  "label": "H & L",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text02",
+                  "label": "HOLIDAY LIGHTING",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text03",
+                  "label": "Custom holiday lighting,",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text04",
+                  "label": "beautifully handled.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text05",
+                  "label": "Proudly serving",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text06",
+                  "label": "Carterville",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text07",
+                  "label": "Southern Illinois",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text08",
+                  "label": "© 2026 H & L Holiday Lighting. All rights reserved.",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text09",
+                  "label": "Facebook",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "text10",
+                  "label": "Back to top ↑",
+                  "type": "string",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "services",
+          "label": "Service cards",
+          "type": "object",
+          "required": true,
+          "list": true,
+          "fields": [
+            {
+              "name": "number",
+              "label": "Number",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "icon",
+              "label": "Icon",
+              "type": "select",
+              "required": true,
+              "options": {
+                "values": [
+                  "Lightbulb",
+                  "Trees",
+                  "Sparkles"
+                ]
+              }
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "detail",
+              "label": "Link text",
+              "type": "string",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "label": "Service process",
+          "type": "object",
+          "required": true,
+          "list": true,
+          "fields": [
+            {
+              "name": "number",
+              "label": "Number",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "text",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "projects",
+          "label": "Gallery photos",
+          "type": "object",
+          "required": true,
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{alt}"
+            }
+          },
+          "fields": [
+            {
+              "name": "image",
+              "label": "Photo",
+              "type": "image",
+              "required": true
+            },
+            {
+              "name": "alt",
+              "label": "Photo description",
+              "type": "string",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
