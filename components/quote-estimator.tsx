@@ -8,12 +8,14 @@ const phoneHref = `tel:${phone.replace(/[^+0-9]/g, "")}`;
 import { ArrowRight, Check } from "lucide-react";
 import { useProjectSelection } from "./project-selection";
 import { publicPhotoUrl } from "../lib/public-photo-url";
+import { submitInquiry } from "../lib/submit-inquiry";
 
 export function QuoteEstimator() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [budgetOption, setBudgetOption] = useState("");
+  const [needsConfirmation, setNeedsConfirmation] = useState(false);
   const { look, setLook } = useProjectSelection();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const notificationEmail = process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL || "konnerharris4@gmail.com";
@@ -66,44 +68,8 @@ export function QuoteEstimator() {
     }
 
     try {
-      if (sheetsUrl) {
-        const response = await fetch(sheetsUrl, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(body),
-          signal: AbortSignal.timeout(90_000),
-        });
-        const result = await response.json();
-        if (!response.ok || result.ok !== true) {
-          throw new Error("Inquiry was not saved");
-        }
-      } else if (notificationEmail) {
-        const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(notificationEmail)}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json",
-            },
-            body: JSON.stringify({
-              "Customer Name": body.name,
-              "Phone Number": body.phone,
-              "Email Address": body.email || "Not provided",
-              "Preferred Timing": body.timing || "Flexible",
-              "Budget (USD)": body.budget || "Not provided",
-              "Property Address": body.address || "Not provided",
-              "Project Description": body.description || "",
-              ...(look ? { "Lighting Style": body.lightingStyle, "Project Photo": body.projectPhoto } : {}),
-              _subject: `New Lead: ${body.name || "Quote Request"} - H & L Holiday Lighting`,
-              _captcha: "false",
-              _template: "table",
-            }),
-            signal: AbortSignal.timeout(30_000),
-          });
-        const result = await response.json();
-        if (!response.ok || (result.success !== true && result.success !== "true")) {
-          throw new Error("Submission was not accepted");
-        }
-      }
+      const result = await submitInquiry(body, { sheetsUrl, notificationEmail });
+      setNeedsConfirmation(!result.notificationSent);
 
       setSending(false);
       form.reset();
@@ -122,7 +88,7 @@ export function QuoteEstimator() {
         <span><Check size={30} /></span>
         <p className="kicker">Request submitted</p>
         <h3>Thanks for reaching out.</h3>
-        <p>If you haven’t heard back within 2 days, please call {phone} in case technical issues prevented your request from reaching us.</p>
+        <p>{needsConfirmation ? `Your request was saved. Please call ${phone} to confirm we received it; there was a problem sending the alert.` : `If you haven’t heard back within 2 days, please call ${phone} in case technical issues prevented your request from reaching us.`}</p>
         <a className="button button-gold" href={phoneHref}>Call {phone}</a>
         <button type="button" onClick={() => setSubmitted(false)}>Send another message</button>
       </div>

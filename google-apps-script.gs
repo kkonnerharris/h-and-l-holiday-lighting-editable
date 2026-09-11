@@ -42,7 +42,7 @@ function doPost(e) {
     throw error;
   }
 
-  return jsonResponse_({ ok: true });
+  return jsonResponse_({ ok: true, notificationSent: true });
 }
 
 function ensureHeaders_(sheet) {

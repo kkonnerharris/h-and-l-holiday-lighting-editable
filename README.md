@@ -10,6 +10,14 @@ The word `editable` is just part of the repository name. This is the live websit
 
 ## Edit in Pages CMS
 
+## Lead email delivery
+
+The live form saves inquiries to Sheets, then sends a lead alert to the configured `NOTIFICATION_EMAIL` through FormSubmit unless Apps Script explicitly returns `notificationSent: true`. This supports older Sheets scripts that only save rows. Activate FormSubmit using the email sent to the notification recipient before relying on delivery. A saved lead is retained if the email service fails; the customer is asked to call to confirm instead of resubmitting the same lead.
+
+The included Apps Script returns `notificationSent: true` after sending its own email. If you deploy that script later, the website skips the second email automatically. Updating the file in GitHub alone does not redeploy Google Apps Script.
+
+## Edit in Pages CMS
+
 Open https://app.pagescms.org and select `kkonnerharris/h-and-l-holiday-lighting-editable`.
 
 - **Home page**: edit the headline, introduction, main photo, optional photo description, and button text.
