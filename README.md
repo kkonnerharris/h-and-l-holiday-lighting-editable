@@ -1,6 +1,12 @@
-# Separate editable H & L website
+# H & L Holiday Lighting — main website
 
-This folder is an independent copy. The original website in the parent folder is not changed by editing this version.
+This repository runs your main website. Changes saved in Pages CMS automatically update it after GitHub finishes publishing.
+
+**View your website:** https://kkonnerharris.github.io/h-and-l-holiday-lighting-editable/
+
+**Edit your website:** https://app.pagescms.org — select `h-and-l-holiday-lighting-editable`.
+
+The word `editable` is just part of the repository name. This is the live website to use. Save changes in Pages CMS, wait for publishing to finish, and refresh the website.
 
 ## Edit in Pages CMS
 
@@ -11,7 +17,7 @@ Open https://app.pagescms.org and select `kkonnerharris/h-and-l-holiday-lighting
 - **Contact details**: one phone number and a Facebook link.
 - **Advanced**: less frequent changes to other page text, services, and search settings.
 
-Saving publishes to the separate editable website through GitHub Actions. Image uploads use new filenames so replacing one photo does not overwrite an image used elsewhere.
+Saving publishes to the main website through GitHub Actions. To replace a photo, select or upload its replacement in the Home page or Gallery photos editor, then save. Uploading a photo to the library alone does not change the displayed photo.
 
 ## Local website preview
 
@@ -21,7 +27,7 @@ The local editor is for previewing on this computer. It is not published as an e
 
 The local `node_modules` junction shares the existing dependency installation. For a separate checkout on another computer, run `npm ci` normally.
 
-## Publish as a separate site
+## Developer reference: setting up a new client repository
 
 1. Put the **contents of this folder** at the root of a new GitHub repository. Include hidden files `.pages.yml`, `.gitignore`, and `.github`. Do not upload `node_modules`, `.next`, `out`, or `.env.local`.
 2. Configure GitHub Pages to use GitHub Actions. The included workflow builds and publishes this copy.
@@ -31,7 +37,7 @@ The local `node_modules` junction shares the existing dependency installation. F
 
 Pages CMS reads `.pages.yml` from the repository root. The configuration exposes text grouped by page section, contact details, search metadata, service cards, service process, hero photo, and the gallery. Gallery items can be added, removed, and reordered. Saving content commits to GitHub; the included main-branch workflow rebuilds the public site.
 
-No GitHub repository, editor account, or production deployment has been connected automatically. The current site remains separate.
+This repository is already published through GitHub Pages, and Pages CMS saves are connected. No custom domain is configured yet. The setup steps above are only needed when handing off to a new repository. For a custom domain on this repository, configure the domain and DNS, set `SITE_URL` to its HTTPS URL, clear `BASE_PATH`, and rebuild.
 
 ## Forms
 
