@@ -12,9 +12,18 @@ export type ProjectPhoto = {
   height?: number;
 };
 
-export function ProjectGallery({ projects }: { projects: ProjectPhoto[] }) {
+export function ProjectGallery({ projects: savedProjects }: { projects: ProjectPhoto[] }) {
+  const [failedImages, setFailedImages] = useState<string[]>([]);
+  const projects = savedProjects.filter(
+    (project) => typeof project?.image === "string" && project.image.trim() !== "" && !failedImages.includes(project.image),
+  );
   const [selected, setSelected] = useState<number | null>(null);
   const { setLook } = useProjectSelection();
+
+  function removeMissingPhoto(image: string) {
+    setFailedImages((images) => images.includes(image) ? images : [...images, image]);
+    setSelected(null);
+  }
 
   function chooseLook(project: ProjectPhoto) {
     setSelected(null);
@@ -55,6 +64,7 @@ export function ProjectGallery({ projects }: { projects: ProjectPhoto[] }) {
               <span className="project-media">
                 <Image
                   src={project.image}
+                  onError={() => removeMissingPhoto(project.image)}
                   alt={project.alt}
                   fill
                   quality={90}
