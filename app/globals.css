@@ -15,28 +15,13 @@
   z-index: -1;
   inset: -12% -8% -18%;
   pointer-events: none;
-  background: radial-gradient(ellipse at 50% 60%, #e5c99038 0%, #caa66a20 40%, transparent 72%);
+  background: repeating-linear-gradient(135deg, #e8344c50 0%, #e8344c50 12%, #fff8f04a 18%, #fff8f04a 30%, #e8344c50 36%);
+  mask-image: radial-gradient(ellipse at 50% 55%, #000 15%, #000b 42%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 55%, #000 15%, #000b 42%, transparent 72%);
   filter: blur(18px);
 }
 @media (forced-colors: active) {
   .hero h1::before { display: none; }
-}
-.candy-cane-letter {
-  /* Give the script's overhanging strokes room inside the painted background. */
-  display: inline-block;
-  padding: .2em .22em;
-  margin: -.2em -.22em;
-  vertical-align: baseline;
-  overflow: visible;
-  color: #fff8ee;
-  background: repeating-linear-gradient(135deg, #fff8ee 0, #fff8ee .075em, #e84b58 .075em, #e84b58 .13em, #a92337 .13em, #a92337 .15em);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 1px #06111c) drop-shadow(0 0 5px #fff0d938);
-}
-@media (forced-colors: active) {
-  .candy-cane-letter { background: none; -webkit-text-fill-color: currentColor; filter: none; }
 }
 
 .faq-list{max-width:860px;margin:0 auto;border-top:1px solid #d2c1a4}
