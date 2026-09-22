@@ -1,4 +1,5 @@
 import Image from "next/image";
+import localFont from "next/font/local";
 import { ArrowRight, CalendarDays, Check, ChevronRight, Lightbulb, Menu, Package, Sparkles, Trees, Wrench } from "lucide-react";
 import { QuoteEstimator } from "../components/quote-estimator";
 import { ProjectSelectionProvider } from "../components/project-selection";
@@ -8,6 +9,12 @@ import { TwinklingLights } from "../components/twinkling-lights";
 import site from "../lib/site-content";
 import { assetPath } from "../lib/asset-path";
 const serviceIcons = { Lightbulb, Trees, Sparkles };
+const holidayScript = localFont({
+  src: "./GreatVibes-Regular.ttf",
+  variable: "--font-holiday-script",
+  display: "swap",
+  weight: "400",
+});
 
 const services = site.services.map(service => ({ ...service, icon: serviceIcons[service.icon as keyof typeof serviceIcons] || Lightbulb }));
 
@@ -17,6 +24,8 @@ const allProjects: ProjectPhoto[] = site.projects.map(project => ({ ...project, 
 const process = site.process.map(({ number, title, description }) => [number, title, description]);
 
 export default function Home() {
+  const magicalLetterIndex = site.copy.top.text02.toLowerCase().indexOf("magical");
+  const candyLetterIndex = magicalLetterIndex < 0 ? -1 : magicalLetterIndex + 6;
   return (
     <ProjectSelectionProvider>
     <main className="site-shell">
@@ -41,7 +50,7 @@ export default function Home() {
         <div className="hero-wash" />
         <TwinklingLights />
         <div className="hero-content">
-          <h1>{site.copy.top.text01}<br /><em>{site.copy.top.text02}</em></h1>
+          <h1 className={holidayScript.variable}><span className="candy-cane-letter">{site.copy.top.text01.slice(0, 1)}</span>{site.copy.top.text01.slice(1)}<br /><em>{candyLetterIndex < 0 ? site.copy.top.text02 : <>{site.copy.top.text02.slice(0, candyLetterIndex)}<span className="candy-cane-letter">{site.copy.top.text02[candyLetterIndex]}</span>{site.copy.top.text02.slice(candyLetterIndex + 1)}</>}</em></h1>
           <p>{site.copy.top.text03}</p>
           <div className="hero-actions">
             <a className="button button-gold" href="#estimate">{site.copy.top.text04}<ArrowRight size={17} /></a>

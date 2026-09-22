@@ -67,8 +67,8 @@ export function TwinklingLights() {
             {
               left: `${light.x}%`,
               top: `${light.y}%`,
-              width: `${light.size}px`,
-              height: `${light.size * 2.2}px`,
+              width: `${light.size * 1.8}px`,
+              height: `${light.size * 3.6}px`,
               "--bulb-angle": `${(light.id % 5 - 2) * 9}deg`,
               "--twinkle-duration": `${light.duration}s`,
               "--twinkle-delay": `${light.delay}s`,
