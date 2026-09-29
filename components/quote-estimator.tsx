@@ -18,7 +18,6 @@ export function QuoteEstimator() {
   const [needsConfirmation, setNeedsConfirmation] = useState(false);
   const { look, setLook } = useProjectSelection();
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const notificationEmail = process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL || "konnerharris4@gmail.com";
 
   useEffect(() => {
     if (!look) return;
@@ -61,14 +60,14 @@ export function QuoteEstimator() {
     }
     const sheetsUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL;
 
-    if (!sheetsUrl && !notificationEmail) {
+    if (!sheetsUrl) {
       setSending(false);
       setError(`Online inquiries are not connected yet. Please call ${phone}.`);
       return;
     }
 
     try {
-      const result = await submitInquiry(body, { sheetsUrl, notificationEmail, siteUrl: window.location.origin });
+      const result = await submitInquiry(body, { sheetsUrl });
       setNeedsConfirmation(!result.notificationSent);
 
       setSending(false);
@@ -96,10 +95,7 @@ export function QuoteEstimator() {
   }
 
   return (
-    <form className="quote-card inquiry-card" onSubmit={submit} action={`https://formsubmit.co/${encodeURIComponent(notificationEmail)}`} method="POST">
-      <input type="hidden" name="_subject" value="New Quote Request - H & L Holiday Lighting" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
+    <form className="quote-card inquiry-card" onSubmit={submit} method="POST">
       {look && <input type="hidden" name="Selected Gallery Look" value={look.alt} />}
       <div className="quote-card-head"><div><small>QUICK CONTACT</small><h3 ref={headingRef} tabIndex={-1}>Tell us about your home</h3></div></div>
       <p className="inquiry-note">Share your contact details and holiday lighting ideas.</p>

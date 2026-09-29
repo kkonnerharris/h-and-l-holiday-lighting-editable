@@ -1,4 +1,4 @@
-const RECIPIENT_EMAIL = "konnerharris4@gmail.com";
+const RECIPIENT_EMAIL = "Rickyhurleyy@gmail.com";
 
 function doPost(e) {
 
@@ -39,7 +39,8 @@ function doPost(e) {
     sheet.getRange(row, 9).setValue("Sent " + receivedAt.toISOString());
   } catch (error) {
     sheet.getRange(row, 9).setValue("Email failed: " + error.message);
-    throw error;
+    console.error("Lead saved but notification failed: " + error.message);
+    return jsonResponse_({ ok: true, notificationSent: false });
   }
 
   return jsonResponse_({ ok: true, notificationSent: true });
@@ -97,6 +98,11 @@ function notificationRecipient_() {
 }
 
 // Run in the editor to authorize email access and inspect setup without sending mail.
+function setupLeadNotifications() {
+  PropertiesService.getScriptProperties().setProperty("NOTIFICATION_EMAIL", RECIPIENT_EMAIL);
+  checkNotificationSetup();
+}
+
 function checkNotificationSetup() {
   const recipient = notificationRecipient_();
   if (!recipient) throw new Error("Add the NOTIFICATION_EMAIL Script Property.");
