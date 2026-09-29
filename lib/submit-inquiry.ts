@@ -2,7 +2,7 @@ type Inquiry = Record<string, unknown>;
 
 export async function submitInquiry(
   body: Inquiry,
-  settings: { sheetsUrl?: string; notificationEmail: string },
+  settings: { sheetsUrl?: string; notificationEmail: string; siteUrl?: string },
   request: typeof fetch = fetch,
 ) {
   let savedToSheet = false;
@@ -27,8 +27,8 @@ export async function submitInquiry(
       if (!settings.notificationEmail) throw new Error('Notification email not configured');
       const response = await request(`https://formsubmit.co/ajax/${encodeURIComponent(settings.notificationEmail)}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
+        headers: { Accept: 'application/json' },
+        body: new URLSearchParams(Object.entries({
           'Customer Name': body.name,
           'Phone Number': body.phone,
           'Email Address': body.email || 'Not provided',
@@ -40,14 +40,18 @@ export async function submitInquiry(
           _subject: `New Lead: ${body.name || 'Quote Request'} - H & L Holiday Lighting`,
           _captcha: 'false',
           _template: 'table',
+          ...(settings.siteUrl ? { _url: settings.siteUrl } : {}),
           ...(body.email ? { _replyto: body.email } : {}),
-        }),
+        }).map(([key, value]) => [key, String(value ?? '')])),
         signal: AbortSignal.timeout(30_000),
       });
       const result = await response.json();
-      if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error('Notification was not accepted');
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        throw new Error(`FormSubmit rejected the alert (HTTP ${response.status}): ${String(result.message || 'No reason supplied')}`);
+      }
       notificationSent = true;
     } catch (error) {
+      console.error('Lead email alert failed:', error instanceof Error ? error.message : 'Unknown error');
       if (!savedToSheet) throw error;
       // The lead exists; do not invite a second submission and duplicate it.
     }

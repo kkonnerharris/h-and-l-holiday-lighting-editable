@@ -68,7 +68,7 @@ export function QuoteEstimator() {
     }
 
     try {
-      const result = await submitInquiry(body, { sheetsUrl, notificationEmail });
+      const result = await submitInquiry(body, { sheetsUrl, notificationEmail, siteUrl: window.location.origin });
       setNeedsConfirmation(!result.notificationSent);
 
       setSending(false);
