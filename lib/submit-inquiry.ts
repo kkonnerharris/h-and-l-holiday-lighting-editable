@@ -8,16 +8,21 @@ export async function submitInquiry(
   let savedToSheet = false;
   let notificationSent = false;
   if (settings.sheetsUrl) {
-    const response = await request(settings.sheetsUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(body),
-      signal: AbortSignal.timeout(90_000),
-    });
-    const result = await response.json();
-    if (!response.ok || result.ok !== true) throw new Error('Inquiry was not saved');
-    savedToSheet = true;
-    notificationSent = result.notificationSent === true;
+    try {
+      const response = await request(settings.sheetsUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(body),
+        signal: AbortSignal.timeout(90_000),
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) throw new Error('Inquiry was not saved');
+      savedToSheet = true;
+      notificationSent = result.notificationSent === true;
+    } catch (error) {
+      // A Sheets outage or invalid response must not prevent the email attempt.
+      console.error('Lead sheet save could not be confirmed:', error instanceof Error ? error.message : 'Unknown error');
+    }
   }
 
   // Older Sheets scripts save the lead without sending mail. Send the alert
