@@ -27,7 +27,7 @@
       "text01": "Our signature services",
       "text02": "Every detail,",
       "text03": "beautifully considered.",
-      "text04": "Choose a look for your roofline, trees, or landscape. H & L offers installation, maintenance, takedown, and storage services."
+      "text04": "Choose a look for your roofline, trees, or landscape. H&L provides you with an all inclusive service where we handle everything including installation, maintenance, takedown, and storage."
     },
     "estimate": {
       "text01": "A brighter holiday starts here",
@@ -95,7 +95,7 @@
       "number": "01",
       "icon": "Lightbulb",
       "title": "Roofline Lighting",
-      "description": "Define your home's roofline with classic warm white or colorful holiday lights.",
+      "description": "Make your home or business shine this year with our custom fit roof lighting.",
       "detail": "Request an estimate"
     },
     {
@@ -122,17 +122,17 @@
     {
       "number": "02",
       "title": "Maintenance",
-      "description": "Maintenance services for your holiday display. Confirm the covered work and any service charges before booking."
+      "description": "We will be out within 24 hours to resolve any issues with your display."
     },
     {
       "number": "03",
       "title": "Takedown",
-      "description": "Post-season light removal. Confirm your takedown schedule when planning your installation."
+      "description": "We will take down your lights after the holidays so you don't have to!"
     },
     {
       "number": "04",
       "title": "Storage",
-      "description": "Storage services for your holiday lights. Confirm arrangements and any storage charges before booking."
+      "description": "We will store your lights so they are ready to go again next year!"
     }
   ]
 }
